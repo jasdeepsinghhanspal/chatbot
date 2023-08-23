@@ -1,0 +1,59 @@
+<html>
+<head>
+    <title>Simple Chatbot</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="chat-container">
+        <div id="chat-log"></div>
+        <input type="text" id="user-input" placeholder="Type a message...">
+    </div>
+
+    <script>
+        const chatLog = document.getElementById('chat-log');
+        const userInput = document.getElementById('user-input');
+
+        userInput.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                const userMessage = userInput.value.trim().toLowerCase();
+                chatLog.innerHTML += `<div>User: ${userMessage}</div>`;
+
+                let botResponse = 'Goodbye';
+                if (userMessage === 'hi ram') {
+                    botResponse = 'Hello';
+                }
+                else if (userMessage === 'how are you') {
+                    botResponse = 'well thank you I am great';
+                }
+
+                chatLog.innerHTML += `<div>Bot: ${botResponse}</div>`;
+                userInput.value = '';
+            }
+        });
+    </script>
+</body>
+</html>
+------------------------------------------------------------------------------------------
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #chat-container {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 300px;
+            padding: 10px;
+            margin: 20px auto;
+            background-color: #f7f7f7;
+        }
+        #chat-log {
+            height: 300px;
+            overflow: auto;
+            border: 1px solid #ccc;
+            padding: 5px;
+        }
+        #user-input {
+            width: 100%;
+            padding: 5px;
+        }
+    
